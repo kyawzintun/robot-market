@@ -41,6 +41,9 @@ Please read the instructions and FAQ below before begin.
 
 ### How do I start the app?
 
+At the very beginning please fork or clone this repository into your own private repository (github / bitbucket).
+During all development please make regular commits while working on this app.
+
 Start both server and frontend project by using `npm start` command. The port for frontend is `localhost:3000`, and for
 server is `localhost:8000`
 
@@ -51,8 +54,11 @@ libraries/frameworks, packages, tools that you want.
 
 ### What should I do when I'm finished?
 
-Please forked the project and make regular commits while working on this app. After you have finished you work upload
-your app to Github repo, and then send us email with the link to that repo.
+After you have finished you work push all commits to your repository, and then send us email to inform that app has been finished, also please add following users there:
+* win@morphos.is
+* suhas@morphos.is
+* pawel@morphos.is
+* pratchaya.su@morphos.is.
 
 ### How is the exam graded?
 
