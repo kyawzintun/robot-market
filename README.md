@@ -57,8 +57,6 @@ libraries/frameworks, packages, tools that you want.
 After you have finished you work push all commits to your repository, and then send us email to inform that app has been finished, also please add following users there:
 * win@morphos.is
 * suhas@morphos.is
-* pawel@morphos.is
-* pratchaya.su@morphos.is.
 
 ### How is the exam graded?
 
