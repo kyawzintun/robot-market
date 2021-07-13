@@ -24,6 +24,8 @@ Please read the instructions and FAQ below before begin.
 
 ## Robots API
 
+**DO NOT CHANGE API RESPONSE INSIDE SERVER FOLDER**
+
 - The basic query looks like this: `/api/robots`
 - The response format is JSON
 ```
