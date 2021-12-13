@@ -3,7 +3,12 @@
 This is an e-commerce site for you to buy robots. The homepage should display a list of robots for people to browse,
 where on the right side of the screen should display a cart that show a list of selected robots.
 
-Please read the instructions and FAQ below before begin.
+**Please read the instructions and FAQ below before begin.**
+
+## Contact Details
+Please fill in your name and email
+- Name: ____
+- Email: ____
 
 ## Features
 
