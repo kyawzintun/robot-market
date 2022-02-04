@@ -1,11 +1,17 @@
 import * as React from "react";
+import { Routes, Route } from "react-router-dom";
+import NavBar from "./components/navbar";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Robot Market</h1>
-      {/*Add your code here*/}
-    </div>
+    <>
+      <NavBar />
+      <div className="App">
+        <Routes>
+          <Route path="*" element={<div>Not Found</div>} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
