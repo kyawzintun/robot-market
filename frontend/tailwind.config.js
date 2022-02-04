@@ -16,6 +16,9 @@ module.exports = {
       gridTemplateRows: {
         "[auto,auto,1fr]": "auto auto 1fr",
       },
+      zIndex: {
+        99: "99",
+      },
     },
   },
   plugins: ["@tailwindcss/aspect-ratio", "@tailwindcss/forms"],
