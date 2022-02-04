@@ -34,7 +34,7 @@ const navLinks = [
 ];
 
 export function NavBar() {
-  const [cartOpen, setCartOpen] = React.useState(true);
+  const [cartOpen, setCartOpen] = React.useState(false);
 
   return (
     <Popover className="relative bg-white">
