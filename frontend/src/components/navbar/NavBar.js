@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { Popover } from "@headlessui/react";
 import {
   ShoppingBagIcon,
@@ -11,7 +10,7 @@ import {
 import { NavLink } from "@components/lib";
 import { Cart } from "@components/cart";
 import HamBurgerMenu from "./HamBurgerMenu";
-import { selectProductsFromCart } from "@app/slices/cartSlice";
+import { useGetProductsFromCart } from "@app/slices/cartSlice";
 import logo from "@assets/logo.svg";
 
 const navLinks = [
@@ -36,7 +35,7 @@ const navLinks = [
 ];
 
 export function NavBar() {
-  const products = useSelector(selectProductsFromCart);
+  const [products] = useGetProductsFromCart();
   const [cartOpen, setCartOpen] = React.useState(false);
 
   return (
@@ -65,12 +64,12 @@ export function NavBar() {
               className="absolute group -m-2 p-2 flex items-center"
               onClick={() => setCartOpen(true)}
             >
-              <span class="relative inline-block">
+              <span className="relative inline-block">
                 <ShoppingBagIcon
                   className="flex-shrink-0 h-10 w-10 text-gray-400 group-hover:text-gray-500"
                   aria-hidden="true"
                 />
-                <span class="absolute top-0 right-0 px-2 py-1 text-xs font-bold leading-none text-red-100 transform bg-red-600 rounded-full">
+                <span className="absolute top-0 right-0 px-2 py-1 text-xs font-bold leading-none text-red-100 transform bg-red-600 rounded-full">
                   {products.length}
                 </span>
               </span>

@@ -1,11 +1,29 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { formatDate, formatCurrency } from "@utils";
-import { addToCart } from "@app/slices/cartSlice";
+import { addToCart, useGetProductsFromCart } from "@app/slices/cartSlice";
 import { classNames } from "@components/lib";
 
 export function Product({ product }) {
   const dispatch = useDispatch();
+  const [products] = useGetProductsFromCart();
+
+  const handleAddToCart = (selectedProduct) => {
+    if (products.length >= 5) {
+      toast.error("Wow so easy!", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    dispatch(addToCart(selectedProduct));
+  };
 
   return (
     <div className="group relative">
@@ -34,7 +52,7 @@ export function Product({ product }) {
         </div>
       </div>
       <button
-        onClick={() => dispatch(addToCart(product))}
+        onClick={() => handleAddToCart(product)}
         disabled={!product.stock}
         className={classNames(
           product.stock

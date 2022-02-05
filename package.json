@@ -13,5 +13,8 @@
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/morphosisteam/robot-market#readme"
+  "homepage": "https://bitbucket.org/morphosisteam/robot-market#readme",
+  "dependencies": {
+    "react-toastify": "^8.1.1"
+  }
 }

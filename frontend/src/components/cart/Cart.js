@@ -1,10 +1,10 @@
 import { Fragment } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import {
-  selectProductsFromCart,
+  useGetProductsFromCart,
   removeFromCart,
   incrementQuantity,
   decrementQuantity,
@@ -14,7 +14,7 @@ import { formatCurrency } from "@utils";
 import "./Cart.css";
 
 export function Cart({ cartOpen, setCartOpen }) {
-  const products = useSelector(selectProductsFromCart);
+  const [products] = useGetProductsFromCart();
   const dispatch = useDispatch();
 
   const totalPrice =

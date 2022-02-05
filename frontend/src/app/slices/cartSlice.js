@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
 import { createSlice } from "@reduxjs/toolkit";
 
 const localStorageKey = "__my_cart__";
@@ -65,4 +67,9 @@ export const {
 
 export default cartSlice.reducer;
 
-export const selectProductsFromCart = (state) => state.cart;
+export const useGetProductsFromCart = () => {
+  const selectProductsFromCart = (state) => state.cart;
+  const products = useSelector(selectProductsFromCart);
+
+  return useMemo(() => [products], [products]);
+};
