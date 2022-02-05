@@ -26,14 +26,14 @@ export function Product({ robot }) {
 
   return (
     <div className="group relative z-auto">
-      <div className="w-full relative min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+      <div className="w-full relative min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden lg:h-80 lg:aspect-none">
         <img
           src={robot.image}
           alt={robot.name}
           loading="lazy"
-          className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+          className="w-full h-full object-center object-cover transform transition duration-500 hover:scale-125 lg:w-full lg:h-full"
         />
-        <div className="absolute text-gray-500 py-2.5 bottom-3 right-3 font-extrabold text-3xl text-right leading-4">
+        <div className="absolute text-gray-700 bg-white py-3 px-3 top-0 left-0 text-3xl text-right leading-4">
           {formatCurrency(robot.price)}
         </div>
       </div>
