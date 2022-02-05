@@ -30,7 +30,7 @@ export function FilterDropdown({ filters, filterBy, setFilterBy }) {
 
   return (
     <div className="flex items-center">
-      <Menu as="div" className="relative inline-block text-left z-50">
+      <Menu as="div" className="relative inline-block text-left z-10">
         <div>
           <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
             <span className="text-gray-500 text-sm whitespace-pre">

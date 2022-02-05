@@ -26,7 +26,7 @@ export function Product({ robot }) {
   };
 
   return (
-    <div className="group relative">
+    <div className="group relative z-auto">
       <div className="w-full relative min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
         <Link key={robot.id} to={`/robots/${robot.id}`}>
           <img
