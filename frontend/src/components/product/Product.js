@@ -32,6 +32,7 @@ export function Product({ robot }) {
           <img
             src={robot.image}
             alt={robot.name}
+            loading="lazy"
             className="w-full h-full object-center object-cover lg:w-full lg:h-full"
           />
           <div className="absolute text-gray-500 py-2.5 bottom-3 right-3 font-extrabold text-3xl text-right leading-4">
