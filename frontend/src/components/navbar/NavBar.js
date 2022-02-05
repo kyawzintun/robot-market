@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import logo from "@assets/logo.svg";
+import { useSelector } from "react-redux";
 import { Popover } from "@headlessui/react";
 import {
   ShoppingBagIcon,
@@ -11,6 +11,8 @@ import {
 import { NavLink } from "@components/lib";
 import { Cart } from "@components/cart";
 import HamBurgerMenu from "./HamBurgerMenu";
+import { selectProductsFromCart } from "@app/slices/cartSlice";
+import logo from "@assets/logo.svg";
 
 const navLinks = [
   {
@@ -34,10 +36,11 @@ const navLinks = [
 ];
 
 export function NavBar() {
+  const products = useSelector(selectProductsFromCart);
   const [cartOpen, setCartOpen] = React.useState(false);
 
   return (
-    <Popover className="relative bg-white">
+    <Popover className="bg-white sticky top-0 z-50">
       <div className="max-w-full mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6">
           <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -57,17 +60,19 @@ export function NavBar() {
               </NavLink>
             ))}
           </Popover.Group>
-          <div className="hidden md:flex items-center justify-end md:flex-none lg:flex-1 lg:w-0">
+          <div className="cursor-pointer hidden md:flex items-center justify-end md:flex-none lg:flex-1 lg:w-0">
             <div
-              className="group -m-2 p-2 flex items-center"
+              className="absolute group -m-2 p-2 flex items-center"
               onClick={() => setCartOpen(true)}
             >
-              <ShoppingBagIcon
-                className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
-                aria-hidden="true"
-              />
-              <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                0
+              <span class="relative inline-block">
+                <ShoppingBagIcon
+                  className="flex-shrink-0 h-10 w-10 text-gray-400 group-hover:text-gray-500"
+                  aria-hidden="true"
+                />
+                <span class="absolute top-0 right-0 px-2 py-1 text-xs font-bold leading-none text-red-100 transform bg-red-600 rounded-full">
+                  {products.length}
+                </span>
               </span>
             </div>
           </div>
