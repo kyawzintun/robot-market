@@ -19,4 +19,4 @@ function NavLink({ to, customstyle, ...props }) {
   );
 }
 
-export { NavLink };
+export { NavLink, classNames };

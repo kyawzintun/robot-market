@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FilterIcon } from "@heroicons/react/solid";
 import { Product, MobileFilterDialog, FilterForm } from "@components/product";
-import { useGetRobotsQuery } from "@app/api/apiSlice";
+import { useGetRobotsQuery } from "@app/slices/apiSlice";
 
 // const products = [
 //   {

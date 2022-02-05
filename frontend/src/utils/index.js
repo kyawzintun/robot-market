@@ -9,4 +9,11 @@ function formatDate(dateString) {
     .replace(/\//g, "-"); //DD-MM-YYYY format
 }
 
-export { formatDate };
+function formatCurrency(price) {
+  return new Intl.NumberFormat("th-TH", {
+    style: "currency",
+    currency: "THB",
+  }).format(price);
+}
+
+export { formatDate, formatCurrency };
