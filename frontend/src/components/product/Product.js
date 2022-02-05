@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { formatDate, formatCurrency } from "@utils";
@@ -28,17 +27,15 @@ export function Product({ robot }) {
   return (
     <div className="group relative z-auto">
       <div className="w-full relative min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-        <Link key={robot.id} to={`/robots/${robot.id}`}>
-          <img
-            src={robot.image}
-            alt={robot.name}
-            loading="lazy"
-            className="w-full h-full object-center object-cover lg:w-full lg:h-full"
-          />
-          <div className="absolute text-gray-500 py-2.5 bottom-3 right-3 font-extrabold text-3xl text-right leading-4">
-            {formatCurrency(robot.price)}
-          </div>
-        </Link>
+        <img
+          src={robot.image}
+          alt={robot.name}
+          loading="lazy"
+          className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+        />
+        <div className="absolute text-gray-500 py-2.5 bottom-3 right-3 font-extrabold text-3xl text-right leading-4">
+          {formatCurrency(robot.price)}
+        </div>
       </div>
       <div className="mt-1 flex justify-between">
         <div>
