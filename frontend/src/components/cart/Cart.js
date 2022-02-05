@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import {
-  useGetProductsFromCart,
+  useGetRobotsFromCart,
   removeFromCart,
   incrementQuantity,
   decrementQuantity,
@@ -14,13 +14,13 @@ import { formatCurrency } from "@utils";
 import "./Cart.css";
 
 export function Cart({ cartOpen, setCartOpen }) {
-  const [products] = useGetProductsFromCart();
+  const [robots] = useGetRobotsFromCart();
   const dispatch = useDispatch();
 
   const totalPrice =
-    products.length === 0
+    robots.length === 0
       ? 0
-      : products
+      : robots
           .map((item) => Number(item.price) * item.quantity)
           .reduce((itemPrice, accPrice) => accPrice + itemPrice);
 
@@ -76,12 +76,12 @@ export function Cart({ cartOpen, setCartOpen }) {
                     <div className="mt-8">
                       <div className="flow-root">
                         <ul className="-my-6 divide-y divide-gray-200">
-                          {products.map((product) => (
-                            <li key={product.id} className="py-6 flex">
+                          {robots.map((robot) => (
+                            <li key={robot.id} className="py-6 flex">
                               <div className="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
                                 <img
-                                  src={product.image}
-                                  alt={product.name}
+                                  src={robot.image}
+                                  alt={robot.name}
                                   className="w-full h-full object-center object-cover"
                                 />
                               </div>
@@ -90,25 +90,23 @@ export function Cart({ cartOpen, setCartOpen }) {
                                 <div>
                                   <div className="flex justify-between text-base font-medium text-gray-900">
                                     <h3>
-                                      <Link to={product.id}>
-                                        {product.name}
-                                      </Link>
+                                      <Link to={robot.id}>{robot.name}</Link>
                                     </h3>
                                     <p className="ml-4">
                                       {formatCurrency(
-                                        product.quantity * product.price
+                                        robot.quantity * robot.price
                                       )}
                                     </p>
                                   </div>
                                   <p className="mt-1 text-sm text-gray-500">
-                                    {product.stock} In stock
+                                    {robot.stock} In stock
                                   </p>
                                 </div>
                                 <div className="flex-1 flex justify-between text-sm">
                                   <div className="inline-flex flex-row h-10 mt-1 custom-number-input">
                                     <button
                                       onClick={() =>
-                                        dispatch(decrementQuantity(product))
+                                        dispatch(decrementQuantity(robot))
                                       }
                                       className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 w-20 rounded-l cursor-pointer outline-none"
                                     >
@@ -119,13 +117,13 @@ export function Cart({ cartOpen, setCartOpen }) {
                                     <input
                                       type="number"
                                       className="grow-0 outline-none focus:outline-none text-center w-10 bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700"
-                                      name={product.id}
-                                      value={product.quantity}
+                                      name={robot.id}
+                                      value={robot.quantity}
                                       readOnly
                                     />
                                     <button
                                       onClick={() =>
-                                        dispatch(incrementQuantity(product))
+                                        dispatch(incrementQuantity(robot))
                                       }
                                       className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 w-20 rounded-r cursor-pointer"
                                     >
@@ -139,7 +137,7 @@ export function Cart({ cartOpen, setCartOpen }) {
                                     <button
                                       type="button"
                                       onClick={() =>
-                                        dispatch(removeFromCart(product))
+                                        dispatch(removeFromCart(robot))
                                       }
                                       className="font-medium text-indigo-600 hover:text-indigo-500"
                                     >

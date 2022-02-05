@@ -5,13 +5,14 @@ export function FilterForm({ filters }) {
   return (
     <Disclosure
       as="div"
+      defaultOpen
       className="border-t border-gray-200 px-4 py-6 lg:border-0 lg:py-0"
     >
       {({ open }) => (
         <>
           <h3 className="-mx-2 -my-3 flow-root">
             <Disclosure.Button className="px-2 py-3 bg-white w-full flex items-center justify-between text-gray-400 hover:text-gray-500">
-              <span className="font-medium text-gray-900">Category</span>
+              <span className="font-medium text-gray-900">Material</span>
               <span className="ml-6 flex items-center">
                 {open ? (
                   <MinusSmIcon className="h-5 w-5" aria-hidden="true" />

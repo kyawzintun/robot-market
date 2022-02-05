@@ -10,7 +10,7 @@ import {
 import { NavLink } from "@components/lib";
 import { Cart } from "@components/cart";
 import HamBurgerMenu from "./HamBurgerMenu";
-import { useGetProductsFromCart } from "@app/slices/cartSlice";
+import { useGetRobotsFromCart } from "@app/slices/cartSlice";
 import logo from "@assets/logo.svg";
 
 const navLinks = [
@@ -35,7 +35,7 @@ const navLinks = [
 ];
 
 export function NavBar() {
-  const [products] = useGetProductsFromCart();
+  const [robots] = useGetRobotsFromCart();
   const [cartOpen, setCartOpen] = React.useState(false);
 
   return (
@@ -70,7 +70,7 @@ export function NavBar() {
                   aria-hidden="true"
                 />
                 <span className="absolute top-0 right-0 px-2 py-1 text-xs font-bold leading-none text-red-100 transform bg-red-600 rounded-full">
-                  {products.length}
+                  {robots.length}
                 </span>
               </span>
             </div>

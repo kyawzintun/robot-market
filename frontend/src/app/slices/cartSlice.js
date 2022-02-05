@@ -22,7 +22,6 @@ export const cartSlice = createSlice({
   initialState: savedData ?? [],
   reducers: {
     addToCart: (state, action) => {
-      console.log("state action ", action);
       const itemIndex = getItemIndex(state, action.payload.id);
       if (itemIndex && itemIndex < 0) {
         state.push({ ...action.payload, quantity: 1 });
@@ -67,9 +66,9 @@ export const {
 
 export default cartSlice.reducer;
 
-export const useGetProductsFromCart = () => {
-  const selectProductsFromCart = (state) => state.cart;
-  const products = useSelector(selectProductsFromCart);
+export const useGetRobotsFromCart = () => {
+  const selectRobotsFromCart = (state) => state.cart;
+  const robots = useSelector(selectRobotsFromCart);
 
-  return useMemo(() => [products], [products]);
+  return useMemo(() => [robots], [robots]);
 };
