@@ -155,7 +155,11 @@ export function Cart({ cartOpen, setCartOpen }) {
 
                   <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                     <div className="flex justify-between text-base font-medium text-gray-900">
-                      <p>Total</p>
+                      <p>Total Amount</p>
+                      <p>{robots.length}</p>
+                    </div>
+                    <div className="flex justify-between text-base font-medium text-gray-900">
+                      <p>Total Price</p>
                       <p>{formatCurrency(totalPrice)}</p>
                     </div>
                     <p className="mt-0.5 text-sm text-gray-500">

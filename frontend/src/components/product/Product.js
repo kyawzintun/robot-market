@@ -3,8 +3,13 @@ import { formatDate, formatCurrency } from "@utils";
 import { addToCart, useGetRobotsFromCart } from "@app/slices/cartSlice";
 import { classNames, showErrorToast } from "@components/lib";
 
-const getRobotsFromCart = (robots, selectedRobot) => {
+const findRobotFromCart = (robots, selectedRobot) => {
   return robots.find((r) => r.id === selectedRobot.id);
+};
+
+const isDifferentRobotAddedMoreThanFive = (robots, selectedRobot) => {
+  const sameTypes = robots.filter((r) => r.material === selectedRobot.material);
+  return sameTypes.length >= 5 ? true : false;
 };
 
 export function Product({ robot }) {
@@ -12,15 +17,21 @@ export function Product({ robot }) {
   const [robots] = useGetRobotsFromCart();
 
   const handleAddToCart = (selectedRobot) => {
-    const existingRobot = getRobotsFromCart(robots, selectedRobot);
+    const existingRobot = findRobotFromCart(robots, selectedRobot);
+
     if (existingRobot && existingRobot.quantity >= selectedRobot.stock) {
       showErrorToast("This robot is out of stock!");
       return;
     }
-    if (!existingRobot && robots.length >= 5) {
+
+    if (
+      !existingRobot &&
+      isDifferentRobotAddedMoreThanFive(robots, selectedRobot)
+    ) {
       showErrorToast("You can only add up to 5 different robots to cart!");
       return;
     }
+
     dispatch(addToCart(selectedRobot));
   };
 
