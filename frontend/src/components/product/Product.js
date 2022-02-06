@@ -4,7 +4,7 @@ import { addToCart, useGetRobotsFromCart } from "@app/slices/cartSlice";
 import { classNames, showErrorToast } from "@components/lib";
 
 const findRobotFromCart = (robots, selectedRobot) => {
-  return robots.find((r) => r.id === selectedRobot.id);
+  return robots.find((r) => r.name === selectedRobot.name);
 };
 
 const isDifferentRobotAddedMoreThanFive = (robots, selectedRobot) => {

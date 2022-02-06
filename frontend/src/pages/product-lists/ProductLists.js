@@ -13,9 +13,9 @@ export function ProductLists() {
   const filters = getUniqueMaterials(robots);
 
   const showRobotsByFilterType = robots.map((robot) => {
-    if (filterBy === "All") return <Product key={robot.id} robot={robot} />;
+    if (filterBy === "All") return <Product key={robot.name} robot={robot} />;
     else if (robot.material === filterBy)
-      return <Product key={robot.id} robot={robot} />;
+      return <Product key={robot.name} robot={robot} />;
 
     return null;
   });

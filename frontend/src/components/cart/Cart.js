@@ -77,7 +77,7 @@ export function Cart({ cartOpen, setCartOpen }) {
                       <div className="flow-root">
                         <ul className="-my-6 divide-y divide-gray-200">
                           {robots.map((robot) => (
-                            <li key={robot.id} className="py-6 flex">
+                            <li key={robot.name} className="py-6 flex">
                               <div className="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
                                 <img
                                   src={robot.image}
@@ -89,9 +89,7 @@ export function Cart({ cartOpen, setCartOpen }) {
                               <div className="ml-4 flex-1 flex flex-col">
                                 <div>
                                   <div className="flex justify-between text-base font-medium text-gray-900">
-                                    <h3>
-                                      <Link to={robot.id}>{robot.name}</Link>
-                                    </h3>
+                                    <h3>{robot.name}</h3>
                                     <p className="ml-4">
                                       {formatCurrency(
                                         robot.quantity * robot.price
@@ -117,7 +115,7 @@ export function Cart({ cartOpen, setCartOpen }) {
                                     <input
                                       type="number"
                                       className="grow-0 outline-none focus:outline-none text-center w-10 bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700"
-                                      name={robot.id}
+                                      name={robot.name}
                                       value={robot.quantity}
                                       readOnly
                                     />

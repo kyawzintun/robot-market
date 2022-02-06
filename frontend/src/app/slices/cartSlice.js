@@ -1,21 +1,20 @@
-import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { createSlice } from "@reduxjs/toolkit";
 
-const getItemIndex = (state, idToFind) => {
-  const ids = state.map((item) => item.id);
-  return ids.indexOf(idToFind);
+const getItemIndex = (state, nameToFind) => {
+  const names = state.map((item) => item.name);
+  return names.indexOf(nameToFind);
 };
 
-const filterState = (state, selectedId) =>
-  state.filter((item) => item.id !== selectedId);
+const filterState = (state, selectedName) =>
+  state.filter((item) => item.name !== selectedName);
 
 export const cartSlice = createSlice({
   name: "cart",
   initialState: [],
   reducers: {
     addToCart: (state, action) => {
-      const itemIndex = getItemIndex(state, action.payload.id);
+      const itemIndex = getItemIndex(state, action.payload.name);
       if (itemIndex && itemIndex < 0) {
         state.push({ ...action.payload, quantity: 1 });
       } else {
@@ -24,11 +23,11 @@ export const cartSlice = createSlice({
       return state;
     },
     removeFromCart: (state, action) => {
-      state = filterState(state, action.payload.id);
+      state = filterState(state, action.payload.name);
       return state;
     },
     incrementQuantity(state, action) {
-      const itemIndex = getItemIndex(state, action.payload.id);
+      const itemIndex = getItemIndex(state, action.payload.name);
 
       if (state[itemIndex].quantity >= state[itemIndex].stock) return state; //product is out of stock
 
@@ -36,10 +35,10 @@ export const cartSlice = createSlice({
       return state;
     },
     decrementQuantity(state, action) {
-      const itemIndex = getItemIndex(state, action.payload.id);
+      const itemIndex = getItemIndex(state, action.payload.name);
 
       if (state[itemIndex].quantity > 1) state[itemIndex].quantity -= 1;
-      else state = filterState(state, action.payload.id);
+      else state = filterState(state, action.payload.name);
 
       return state;
     },

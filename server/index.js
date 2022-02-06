@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const { v4: uuidv4 } = require("uuid");
 const faker = require("faker");
 
 const app = express();
@@ -13,7 +12,6 @@ app.get("/api/robots", (req, res) => {
   let robotList = [];
 
   for (let i = 0; i < MAX_ROBOTS; i++) {
-    const id = uuidv4();
     const name = faker.name.firstName() + " " + faker.name.lastName();
     const image = `https://robohash.org/${name}.png?size=120x120`;
     const price = faker.finance.amount();
@@ -22,7 +20,6 @@ app.get("/api/robots", (req, res) => {
     const material = faker.commerce.productMaterial();
 
     robotList.push({
-      id,
       name,
       image,
       price,
