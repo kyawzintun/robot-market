@@ -11,10 +11,7 @@
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/morphosisteam/robot-market.git"
   },
-  "author": "",
+  "author": "Kyaw Zin Tun",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/morphosisteam/robot-market#readme",
-  "dependencies": {
-    "react-toastify": "^8.1.1"
-  }
+  "homepage": "https://bitbucket.org/morphosisteam/robot-market#readme"
 }
