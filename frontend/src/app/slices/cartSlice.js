@@ -67,8 +67,7 @@ export const {
 export default cartSlice.reducer;
 
 export const useGetRobotsFromCart = () => {
-  const selectRobotsFromCart = (state) => state.cart;
-  const robots = useSelector(selectRobotsFromCart);
+  const robots = useSelector((state) => state.cart);
 
   return useMemo(() => [robots], [robots]);
 };

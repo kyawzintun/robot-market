@@ -1,32 +1,32 @@
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { formatDate, formatCurrency } from "@utils";
 import { addToCart, useGetRobotsFromCart } from "@app/slices/cartSlice";
-import { classNames } from "@components/lib";
+import { classNames, showErrorToast } from "@components/lib";
+
+const getRobotsFromCart = (robots, selectedRobot) => {
+  return robots.find((r) => r.id === selectedRobot.id);
+};
 
 export function Product({ robot }) {
   const dispatch = useDispatch();
   const [robots] = useGetRobotsFromCart();
 
-  const handleAddToCart = (selectedProduct) => {
-    if (robots.length >= 5) {
-      toast.error("You can only add up to 5 different robots to cart!", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+  const handleAddToCart = (selectedRobot) => {
+    const existingRobot = getRobotsFromCart(robots, selectedRobot);
+    if (existingRobot && existingRobot.quantity >= selectedRobot.stock) {
+      showErrorToast("This robot is out of stock!");
       return;
     }
-    dispatch(addToCart(selectedProduct));
+    if (!existingRobot && robots.length >= 5) {
+      showErrorToast("You can only add up to 5 different robots to cart!");
+      return;
+    }
+    dispatch(addToCart(selectedRobot));
   };
 
   return (
     <div className="group relative z-auto">
-      <div className="w-full relative min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden lg:h-80 lg:aspect-none">
+      <div className="w-full relative min-h-300 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden lg:h-80 lg:aspect-none">
         <img
           src={robot.image}
           alt={robot.name}

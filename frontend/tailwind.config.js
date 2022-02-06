@@ -19,6 +19,9 @@ module.exports = {
       zIndex: {
         99: "99",
       },
+      minHeight: {
+        300: "300px",
+      },
     },
   },
   plugins: ["@tailwindcss/aspect-ratio", "@tailwindcss/forms"],

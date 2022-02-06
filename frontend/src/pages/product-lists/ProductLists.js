@@ -11,12 +11,12 @@ export function ProductLists() {
   const [filterBy, setFilterBy] = React.useState("All");
   const { data: robots = [], isLoading, isError, error } = useGetRobotsQuery();
   const filters = getUniqueMaterials(robots);
-  console.log("robots ", robots, filters);
 
   const showRobotsByFilterType = robots.map((robot) => {
     if (filterBy === "All") return <Product key={robot.id} robot={robot} />;
     else if (robot.material === filterBy)
       return <Product key={robot.id} robot={robot} />;
+
     return null;
   });
 

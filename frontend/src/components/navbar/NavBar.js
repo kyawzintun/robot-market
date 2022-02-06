@@ -5,7 +5,7 @@ import {
   ShoppingBagIcon,
   CursorClickIcon,
   MenuIcon,
-  ShoppingCartIcon,
+  PhoneIcon,
 } from "@heroicons/react/outline";
 import { NavLink } from "@components/lib";
 import { Cart } from "@components/cart";
@@ -30,7 +30,7 @@ const navLinks = [
     name: "CONTACTS",
     description: "",
     href: "/contacts",
-    icon: ShoppingCartIcon,
+    icon: PhoneIcon,
   },
 ];
 
