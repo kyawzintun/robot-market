@@ -11,8 +11,6 @@ import {
 } from "@app/slices/cartSlice";
 import { formatCurrency } from "@utils";
 
-import "./Cart.css";
-
 export function Cart({ cartOpen, setCartOpen }) {
   const [robots] = useGetRobotsFromCart();
   const dispatch = useDispatch();
@@ -106,14 +104,14 @@ export function Cart({ cartOpen, setCartOpen }) {
                                       onClick={() =>
                                         dispatch(decrementQuantity(robot))
                                       }
-                                      className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 w-20 rounded-l cursor-pointer outline-none"
+                                      className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 w-10 rounded-l cursor-pointer outline-none"
                                     >
                                       <span className="text-2xl font-thin">
                                         −
                                       </span>
                                     </button>
                                     <input
-                                      type="number"
+                                      type="text"
                                       className="grow-0 outline-none focus:outline-none text-center w-10 bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700"
                                       name={robot.name}
                                       value={robot.quantity}
@@ -123,7 +121,7 @@ export function Cart({ cartOpen, setCartOpen }) {
                                       onClick={() =>
                                         dispatch(incrementQuantity(robot))
                                       }
-                                      className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 w-20 rounded-r cursor-pointer"
+                                      className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 w-10 rounded-r cursor-pointer"
                                     >
                                       <span className="text-2xl font-thin">
                                         +
